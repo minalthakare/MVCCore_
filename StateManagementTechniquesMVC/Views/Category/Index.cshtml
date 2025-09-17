@@ -1,0 +1,56 @@
+﻿<h1>Caategory Index View Page</h1>
+
+<a asp-controller="Category" asp-action="GetCategoryById" asp-route-id="101">Category By Id</a>
+
+<a asp-controller="Category" asp-action="GetCategoryByName" asp-route-name="mens wear">Category By Name</a>
+
+
+<hr/>
+
+<form asp-controller="Category" asp-action="GetCategoryByHidden" method="get">
+	<input type="hidden" name="search" value="electronics"/>
+	<input type="hidden" name="rating" value="4" />
+	<input type="submit" value="submit"/>
+</form>
+
+<hr />
+
+<h3>Using simple type action method parameter</h3>
+<form asp-controller="Category" asp-action="Create1" method="post">
+	<div class="form-group">
+		<lable class="form-label">Name</lable>
+		<input type="text" class="form-control" name="name" />
+	</div>
+	<div class="form-group">
+		<lable class="form-label">Rating</lable>
+		<input type="text" class="form-control" name="rating" />
+	</div>
+	<input type="submit" value="Create" class="btn btn-primary mt-3" />
+</form>
+
+<h3>Using IFormCollection action method parameter</h3>
+<form asp-controller="Category" asp-action="Create2" method="post">
+	<div class="form-group">
+		<lable class="form-label">Name</lable>
+		<input type="text" class="form-control" name="name"/>
+	</div>
+	<div class="form-group">
+		<lable class="form-label">Rating</lable>
+		<input type="text" class="form-control" name="rating"/>
+	</div>
+	<input type="submit" value="Create" class="btn btn-primary mt-3"/>
+</form>
+
+@model Category
+<h3>Using Model as action method parameter</h3>
+<form asp-controller="Category" asp-action="Create3" method="post">
+	<div class="form-group">
+		<lable class="form-label">Name</lable>
+		<input type="text" class="form-control" asp-for="Name" />
+	</div>
+	<div class="form-group">
+		<lable class="form-label">Rating</lable>
+		<input type="text" class="form-control" asp-for="Rating"/>
+	</div>
+	<input type="submit" value="Create" class="btn btn-primary mt-3" />
+</form>

@@ -1,0 +1,44 @@
+﻿
+@* @{
+	Layout = null;
+} *@
+
+
+<h1 Highlight="yellow">Product Index View Content</h1>
+
+<span Highlight ="skyblue">using HTML tag : </span>  <a href="category/index">CATEGORY</a>
+<br />
+
+<span Highlight="lightgreen">using HTML helper class : </span>  @Html.ActionLink("CATEGORY", "Index", "Category")
+<br />
+
+<span>using tag helper : </span><a asp-controller="Category" asp-action="Index" asp-route-id="10"> CATEGORY </a>
+<br />
+
+
+@Html.ActionLink("Index1","Index1", "Product")
+@Html.ActionLink("Index2", "Index2", "Product")
+@Html.ActionLink("Index3", "Index3", "Product")
+
+
+<p>This is paragraph text</p>
+
+<h3>Custom button Tag</h3>
+
+	<my-button type="submit" value="My Custom submit Button"></my-button>
+	<my-button type="button" value="My Custom Normal Button"></my-button>
+	</hr>
+
+	<h3>Rendering Partial View</h3>
+
+	@* @await Component.InvokeAsync("Products") *@
+
+	<div class="row">
+		<div class="col-6">
+		@await Component.InvokeAsync("Products", new { description = "topRated" })
+		</div>
+	<div class="col-6">
+		@await Component.InvokeAsync("Products", new { description = "Discount Products" })
+	</div>
+
+	</div>

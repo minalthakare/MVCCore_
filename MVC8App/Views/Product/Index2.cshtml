@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Product>
+
+<h2>Index 2 Strongly Typed View Page</h2>
+
+<h3> All Products</h3>
+
+<ul>
+	@foreach (Product product in Model)  // Model to access data from model
+	{
+		<li>@product.Name - @product.Price</li>
+	}
+</ul>
+
+@Html.ActionLink("Back to index", "Index", "Product")

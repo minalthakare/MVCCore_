@@ -1,0 +1,14 @@
+﻿<h1>Index 1 Normal View Page</h1>
+
+@Html.ActionLink("Back To Index", "Index", "Product")
+
+@{
+	List<string> names = new List<string>() { "chandan", "Harshala", "sagar" };
+
+	<ul>
+	@foreach (var name in names)
+	{
+		<li>@name</li>
+	}
+	</ul>
+}

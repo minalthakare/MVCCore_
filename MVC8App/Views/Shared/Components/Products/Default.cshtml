@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Product>
+
+@* <h1>Products View Component</h1> *@
+<h2>@Model.FirstOrDefault()?.Description.ToUpper()</h2>
+
+<table class="table table-bordered col-6">
+	@foreach(Product p in Model)
+	{
+	<tr>
+		<td>Name : @p.Name</td>
+		<td>Price : @p.Price</td>
+	</tr>
+	}
+</table>

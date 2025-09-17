@@ -1,0 +1,71 @@
+﻿@using System.Text.Json
+@model Product
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<p>ViewData value : @ViewData["name"]</p>
+
+<p>ViewData value  In Capital : @ViewData["name"].ToString().ToUpper()</p>
+
+<p>ViewBag value = @ViewBag.email</p>
+
+<p>ViewBag value  in capital= @ViewBag.email.ToUpper()</p>
+
+<p>ViewDaata value using ViewBag = @ViewBag.name</p>
+
+<h3>Product details</h3>
+
+<p>Id = @ViewBag.Product.Id</p>
+<p>Name = @ViewBag.Product.Name</p>
+<p>Price = @ViewBag.Product.Price</p>
+
+<h3>Product details using strongly typed view</h3>
+<p>Id = @Model.Id</p>
+<p>Name = @Model.Name</p>
+<p>Price = @Model.Price</p>
+
+@* <p> TempData["Address"] = @TempData["Address"]</p>
+
+@{
+    TempData.Keep("Address");
+} *@
+
+<p> TempData["Address"] = @TempData.Peek("Address")</p>
+
+<h3>Product details using Tempdata</h3>
+
+@{
+    var product = (Product)TempData["product"];
+
+    <p>Id = @product.Id</p>
+    <p>Name = @product.Name</p>
+    <p>Price = @product.Price</p>
+}
+
+<h3>Session Value : @Context.Session.GetString("city")</h3>
+
+@{
+    Product product1 = JsonSerializer.Deserialize<Product>(Context.Session.GetString("prod"));
+
+    <h3>Using session</h3>
+    <p>Id : @product1.Id</p>
+    <p>Name : @product1.Name</p>
+    <p>Price : @product1.Price</p>
+}
+
+<h3>cookie data</h3>
+
+@{
+    string cookieDaata;
+    bool isPresent = Context.Request.Cookies.TryGetValue("username", out cookieDaata);
+    <p>cookie : @isPresent</p>
+    <p>Cookie username value : @cookieDaata</p>
+}

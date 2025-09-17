@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Users>
+
+	<h1>Users List</h1>
+
+	<a asp-controller="Users" asp-action="Create">Create New</a>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Age</th>
+				<th>Date Of Birth</th>
+				<th>Added date</th>
+				<th>Modified Date</th>
+				<th>Deleted Date</th>
+				<th>Actions</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+		@if(Model != null && Model.Count() > 0)
+		{
+			foreach(Users user in Model)
+			{
+				<tr>
+					<td><lable>@user.Id</lable></td>
+					<td><lable>@user.Name</lable></td>
+					<td><lable>@user.Email</lable></td>
+					<td><lable>@user.Age</lable></td>
+					<td>@Html.DisplayFor(modelItem => user.DateOfBirth)</td>
+					<td><lable>@user.AddedDate</lable></td>
+					<td><lable>@user.Modifieddate</lable></td>
+					<td><lable>@user.DeletedDate</lable></td>
+					<td>
+						<a asp-controller="Users" asp-action="Details" asp-route-id="@user.Id">Details</a> |
+						<a asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+						<a asp-controller="Users" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+					</td>
+				</tr>
+			}
+
+		}
+		else
+		{
+			<tr class="bg-info text-center">
+				<td colspan="8">
+					No Users Available
+				</td>
+			</tr>
+		}
+	</tbody>
+	</table>

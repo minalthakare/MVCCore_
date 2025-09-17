@@ -1,0 +1,15 @@
+﻿<h2>Cart Index View Content</h2>
+
+
+@section sidebar 
+{
+<div >
+	<a asp-controller="Product" asp-action="Index">Continue Shopping</a>
+	<a asp-controller="Cart" asp-action="Checkout">Checkout</a>
+</div>
+}
+
+@section Scripts{
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
