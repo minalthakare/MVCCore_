@@ -42,7 +42,7 @@ namespace MVC8App.Controllers
 
         public IActionResult Index3(Product product)
         {
-            Console.WriteLine($"Product Name: {product.Name}, Product Price: {product.Price}");
+            Console.WriteLine($"MySelf");
             return View();
         }
 
